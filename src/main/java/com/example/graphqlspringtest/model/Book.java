@@ -6,8 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
-import java.util.UUID;
-
 @Entity
 @Builder
 @AllArgsConstructor
@@ -16,17 +14,13 @@ import java.util.UUID;
 @Setter
 public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String name;
     private int pageCount;
-    private UUID authorId;
+    private Long authorId;
 
-    public UUID getId() {
-        return id;
-    }
-
-    public UUID getAuthorId() {
+    public Long getAuthorId() {
         return authorId;
     }
 }

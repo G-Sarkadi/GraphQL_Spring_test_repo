@@ -6,8 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
-import java.util.UUID;
-
 @Entity
 @Builder
 @AllArgsConstructor
@@ -17,12 +15,12 @@ import java.util.UUID;
 public class Author {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String firstName;
     private String lastName;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 }

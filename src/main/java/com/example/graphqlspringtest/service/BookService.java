@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class BookService {
@@ -19,7 +18,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public Optional<Book> getById(UUID id) {
+    public Optional<Book> getById(Long id) {
         return bookRepository.findById(id);
     }
 

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Controller
 @AllArgsConstructor
@@ -22,7 +21,7 @@ public class BookController {
 
     @QueryMapping
     public Book bookById(@Argument String id) {
-        Optional<Book> optionalBook = bookService.getById(UUID.fromString(id));
+        Optional<Book> optionalBook = bookService.getById(Long.valueOf(id));
         return optionalBook.orElseGet(Book::new);
     }
 
