@@ -5,8 +5,10 @@ import com.example.graphqlspringtest.model.Book;
 import com.example.graphqlspringtest.repository.AuthorRepository;
 import com.example.graphqlspringtest.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -55,5 +57,13 @@ public class AuthorService {
 
     public Optional<Author> getById(Long authorId) {
         return authorRepository.findById(authorId);
+    }
+
+    public List<Author> getAllAuthors() {
+        return authorRepository.findAll();
+    }
+
+    public List<Author> getAllAuthors(Integer limit) {
+        return authorRepository.getAllAuthorsWithLimit(PageRequest.of(0,limit));
     }
 }

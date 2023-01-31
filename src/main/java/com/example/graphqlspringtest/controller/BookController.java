@@ -34,6 +34,15 @@ public class BookController {
         return bookService.getAllBooks(limit);
     }
 
+    @QueryMapping
+    public List<Author> allAuthors(@Argument Integer limit){
+        if (limit == null) {
+            return authorService.getAllAuthors();
+        } else {
+            return authorService.getAllAuthors(limit);
+        }
+    }
+
     @MutationMapping
     public Book addBook(@Argument String name, @Argument int pageCount, @Argument Author author){
         return bookService.saveNewBook(name, pageCount, author);

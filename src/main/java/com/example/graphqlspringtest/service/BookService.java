@@ -29,6 +29,7 @@ public class BookService {
     public List<Book> getAllBooks(Integer limit) {
         return bookRepository.getAllBooksWithLimit(PageRequest.of(0,limit));
     }
+
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
