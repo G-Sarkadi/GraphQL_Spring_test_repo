@@ -6,6 +6,7 @@ import com.example.graphqlspringtest.service.AuthorService;
 import com.example.graphqlspringtest.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.graphql.data.method.annotation.SchemaMapping;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,11 @@ public class BookController {
             return bookService.getAllBooks();
         }
         return bookService.getAllBooks(limit);
+    }
+
+    @MutationMapping
+    public Book addBook(@Argument String name, @Argument int pageCount, @Argument Author author){
+        return bookService.saveNewBook(name, pageCount, author);
     }
 
     @SchemaMapping
